@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Mock Data (Video List)
 const videos = [
-[
+
   {
     "id": 1,
     "title": "The INSANE Tech behind MrBeast's Biggest Video Ever",
@@ -44,7 +44,7 @@ const videos = [
     "thumbnail": "https://i.ytimg.com/vi/mCQ0D1sS8yM/maxresdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=mCQ0D1sS8yM",
   }
-]
+
 ];
 
 // Routes
@@ -52,15 +52,6 @@ app.get('/api/videos', (req, res) => {
   res.json(videos);
 });
 
-app.post('/api/videos/:id/like', (req, res) => {
-  const video = videos.find(v => v.id === parseInt(req.params.id));
-  if (video) {
-    video.likes += 1;
-    res.json(video);
-  } else {
-    res.status(404).send("Video not found");
-  }
-});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
