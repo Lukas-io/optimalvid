@@ -7,8 +7,6 @@ A cross-platform video streaming application built with Flutter, featuring a cle
 * **Video Library**: Browse through a curated list of videos with thumbnails, titles, and detailed descriptions
 * **Smart Search**: Quickly find videos using the title search functionality
 * **Built-in Player**: Enjoy seamless video playback with our custom in-app video player
-* **Interaction System**: Like your favorite videos and maintain preferences with local storage
-* **Offline Access**: Download and watch one video offline (optional feature)
 
 ## Getting Started
 
@@ -37,7 +35,6 @@ The backend server will be running at `http://localhost:3000`.
 1. Clone the frontend repository:
    ```bash
    git clone <repo-link>
-   cd frontend
    ```
 
 2. Install Flutter dependencies:
@@ -67,8 +64,7 @@ Sample Response:
     "title": "Sample Video 1",
     "description": "This is a sample description for video 1.",
     "thumbnail": "https://example.com/thumbnail1.jpg",
-    "videoUrl": "https://example.com/video1.mp4",
-    "likes": 0
+    "videoUrl": "https://example.com/video1.mp4"
   }
 ]
 ```
@@ -90,7 +86,7 @@ Sample Response:
 
 * [Flutter](https://flutter.dev/) - UI framework
 * [Dio](https://pub.dev/packages/dio) - HTTP client for API requests
-* [video_player](https://pub.dev/packages/video_player) - Video playback functionality
+* [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter) - Video playback functionality
 
 ## Contributing
 
