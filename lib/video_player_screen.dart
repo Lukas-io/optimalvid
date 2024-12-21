@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:optimalvid/video_model.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  final String videoUrl;
+  final VideoModel videoModel;
 
-  const VideoPlayerScreen(this.videoUrl, {super.key});
+  const VideoPlayerScreen(this.videoModel, {super.key});
 
   @override
   State<VideoPlayerScreen> createState() => _VideoPlayerScreenState();
@@ -18,7 +20,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.initState();
 
     // Extract the video ID from the YouTube URL
-    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoModel.videoUrl);
 
     // Initialize the YouTube player controller
     _controller = YoutubePlayerController(
@@ -40,15 +42,35 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    VideoModel video = widget.videoModel;
     return Scaffold(
-      body: Center(
-        child: YoutubePlayer(
-          controller: _controller,
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: Colors.red,
-          onReady: () {
-            print('Player is ready.');
-          },
+      body: SafeArea(
+        child: Column(
+          children: [
+            YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+              onReady: () {
+                print('Player is ready.');
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                children: [
+                  Text(video.title,
+                      style: Theme.of(context).textTheme.titleLarge),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  Text(
+                    video.description,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

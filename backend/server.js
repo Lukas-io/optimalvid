@@ -7,8 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Mock Data (Video List)
-const videos = [
-
+const  videos = [
   {
     "id": 1,
     "title": "The INSANE Tech behind MrBeast's Biggest Video Ever",
@@ -49,6 +48,8 @@ const videos = [
 
 // Routes
 app.get('/api/videos', (req, res) => {
+  // Set content type and send response
+  res.setHeader('Content-Type', 'application/json');
   res.json(videos);
 });
 

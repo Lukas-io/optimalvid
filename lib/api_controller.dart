@@ -5,18 +5,18 @@ import 'package:optimalvid/video_model.dart';
 
 final logger = Logger(
   printer: PrettyPrinter(
-    methodCount: 2,
-    // Number of method calls to include in the log trace
-    errorMethodCount: 8,
-    // Number of method calls to include for errors
-    lineLength: 120,
-    // Wrap lines longer than this
-    colors: true,
-    // Colorful log messages
-    printEmojis: true,
-    // Print emojis for log levels
-    printTime: true, // Include a timestamp in the logs
-  ),
+      // methodCount: 2,
+      // // Number of method calls to include in the log trace
+      // errorMethodCount: 8,
+      // // Number of method calls to include for errors
+      // lineLength: 120,
+      // // Wrap lines longer than this
+      // colors: true,
+      // // Colorful log messages
+      // printEmojis: true,
+      // // Print emojis for log levels
+      // printTime: true, // Include a timestamp in the logs
+      ),
 );
 
 Future<List<VideoModel>> fetchVideos() async {
@@ -29,7 +29,8 @@ Future<List<VideoModel>> fetchVideos() async {
 
     // Check if the response is successful
     if (response.statusCode == 200) {
-      List<VideoModel> videos = response.data
+      // List<Map<String, dynamic>> videosList = response.data;
+      List<VideoModel> videos = videoslist
           .map(
             (video) => VideoModel.fromJson(video),
           )

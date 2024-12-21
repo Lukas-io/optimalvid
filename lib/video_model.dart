@@ -13,7 +13,7 @@ class VideoModel {
     required this.videoUrl,
   });
 
-  factory VideoModel.fromJson(Map<String, dynamic> json) {
+  factory VideoModel.fromJson(json) {
     return VideoModel(
         videoUrl: json["videoUrl"],
         id: json["id"],
