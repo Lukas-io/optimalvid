@@ -1,16 +1,62 @@
-# optimalvid
+📹 Video Streaming App
 
-A new Flutter project.
+A cross-platform video streaming app built with Flutter.
 
-## Getting Started
+Features
 
-This project is a starting point for a Flutter application.
+View a list of videos with thumbnails, titles, and descriptions.
+Search videos by title.
+Play videos using an in-app video player.
+Like videos and save preferences locally.
+(Optional) Offline playback for one video.
+Getting Started
 
-A few resources to get you started if this is your first Flutter project:
+Backend Setup
+Clone the backend:
+git clone <repo-link>
+cd backend
+Install dependencies:
+npm install
+Start the server:
+npm start
+Backend runs on http://localhost:3000.
+Frontend Setup
+Clone the frontend:
+git clone <repo-link>
+cd frontend
+Install Flutter dependencies:
+flutter pub get
+Run the app:
+flutter run
+API Overview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Endpoint:
+GET /videos
+Sample Response:
+[
+  {
+    "id": "1",
+    "title": "Sample Video 1",
+    "description": "This is a sample description for video 1.",
+    "thumbnail": "https://example.com/thumbnail1.jpg",
+    "videoUrl": "https://example.com/video1.mp4",
+    "likes": 0
+  }
+]
+Folder Structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+.
+├── backend/              # API server
+├── frontend/             # Flutter app
+│   ├── lib/              
+│   │   ├── main.dart     # Entry point
+│   │   ├── screens/      # UI screens
+│   │   ├── models/       # Data models
+│   │   └── services/     # API calls using Dio
+Tools Used
+
+Dio: For API calls.
+video_player: To play videos.
+
+Author
+Wisdom
